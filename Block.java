@@ -1,11 +1,8 @@
-// Kush Patel
-
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Block 
 {
-	// Fields
 	public String hash;
 	public String previousHash;
 	public String merkleRoot;

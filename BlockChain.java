@@ -1,28 +1,12 @@
-// Kush Patel
-
-/**  
- 	This Blockchain ...
-	> Is made up of blocks that store transaction data. 
-	> Has a digital signature that chains blocks together.
-	> Requires proof of work mining to validate new blocks.
-	> Can be check to see if data in it is valid and unchanged. 
-	> Allows users to create wallets.
-    > Provides wallets with public and private keys using Elliptic-Curve cryptography.
-    > Secures the transfer of funds, by using a digital signature algorithm to prove ownership.
-    > Allows users to make transactions on blockchain.
-    > Is a simple model of how a cryptocurreny works
- */
-
 import java.security.Security;
 import java.util.ArrayList;
-//import java.util.Base64;
+import java.util.Base64;
 import java.util.HashMap;
-//import com.google.gson.GsonBuilder;
-//import java.util.Map;
+import com.google.gson.GsonBuilder;
+import java.util.Map;
 
 public class BlockChain 
 {
-	// Fields
 	public static ArrayList<Block> blockchain = new ArrayList<Block>();
 	public static HashMap<String,TransactionOutput> UTXOs = new HashMap<String,TransactionOutput>();
 	public static int difficulty = 3;
@@ -155,13 +139,13 @@ public class BlockChain
 				for(TransactionOutput output: currentTransaction.outputs)
 					tempUTXOs.put(output.id, output);
 
-				if( currentTransaction.outputs.get(0).reciepient != currentTransaction.reciepient) 
+				if(currentTransaction.outputs.get(0).reciepient != currentTransaction.reciepient) 
 				{
 					System.out.println("#Transaction(" + t + ") output reciepient is not who it should be");
 					return false;
 				}
 
-				if( currentTransaction.outputs.get(1).reciepient != currentTransaction.sender)
+				if(currentTransaction.outputs.get(1).reciepient != currentTransaction.sender)
 				{
 					System.out.println("#Transaction(" + t + ") output 'change' is not sender.");
 					return false;

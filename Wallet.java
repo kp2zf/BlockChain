@@ -1,5 +1,3 @@
-// Kush Patel
-
 import java.security.*;
 import java.security.spec.ECGenParameterSpec;
 import java.util.ArrayList;
@@ -8,7 +6,6 @@ import java.util.Map;
 
 public class Wallet 
 {
-	// Fields
 	public PrivateKey privateKey; // used to sign transactions
 	public PublicKey publicKey; // used as our address
 	public HashMap<String,TransactionOutput> UTXOs = new HashMap<String,TransactionOutput>(); //only UTXOs owned by this wallet.

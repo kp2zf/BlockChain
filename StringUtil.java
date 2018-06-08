@@ -1,5 +1,3 @@
-// Kush Patel
-
 import java.security.Key;
 import java.security.MessageDigest;
 import java.security.PrivateKey;

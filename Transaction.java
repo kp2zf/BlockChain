@@ -1,5 +1,3 @@
-// Kush Patel
-
 import java.security.*;
 import java.util.ArrayList;
 
