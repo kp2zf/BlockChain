@@ -35,10 +35,31 @@ Both keys are encrypted together using [Elliptic-Curve Cryptography](https://en.
 
 ## Transactions
 Each transaction will carry ...
- - The public key(address) of the sender
- - The public key(address) of the receiver
+ - The public key (address) of the sender
+ - The public key (address) of the receiver
  - The value/amount of funds to be transferred
  - Inputs, which are references to previous transactions that prove the sender has funds to send.
  - Outputs, which shows the amount relevant addresses received in the transaction. (These outputs are referenced as inputs in new transactions)
  - A cryptographic signature, that proves the owner of the address is the one sending this transaction and that the data hasn’t been changed
    (for example: preventing a third party from changing the amount sent)
+   
+Signatures...
+- composed of private key + sender address + recipient address + value
+- allow only the owner to spend their coins
+- prevent others from tampering with their submitted transaction before a new block is mined (at the point of entry)
+- verified by miners as a new transaction are added to a block
+
+Transaction outputs will show the final amount sent to each party from the transaction. These, when referenced as inputs in new transactions, act as proof that you have coins to send. Unspent transaction outputs are reffered to as UTXO's.
+
+Blocks in the chain may receive many transactions and the blockchain might be very, very long, it could take eons to process a new transaction because we have to find and check its inputs. To get around this we will keep an extra collection of all unspent transactions that can be used as inputs.
+
+processTransaction() performs some checks to ensure that the transaction is valid, then gather inputs and generating outputs. Afterwards, we discard Inputs from our list of UTXO’s, meaning a transaction output can only be used once as an input. Hence the full value of the inputs must be used, so the sender sends ‘change’ back to themselves.
+
+## BlockChain.java
+Tests model by...
+ - instantiation of walletA, walletB, and a coinbase
+ - A Genesis block that releases 100 coins to walletA
+ - walletA sucessfully sends 40 coins to walletB 
+ - walletA attempts to send more coins than it has and transaction is denied
+ - walletB sucessfully sends 20 coins to walletA
+ - blockchain integrity test
