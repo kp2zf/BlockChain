@@ -31,7 +31,7 @@ The mineBlock() method takes in an int called difficulty, this is the number of 
 ## Wallet
 Coin ownership is transfered on the Blockchain as transactions, participants have an address which funds can be sent to and from. Wallets can just store these addresses. Wallets also hold a private key (used to *sign* the transactions) and a public key (our address).
 
-Both keys are encrypted together using [Elliptic-Curve Cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography) to generate a *KeyPair*. Private keys ensure that only the owner is able to spend the coins in their wallet. 
+Both keys are encrypted together using [Elliptic-Curve Cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography) to generate a *KeyPair*. Private keys ensure that only the owner is able to spend the coins in their wallet. Public key is also sent along with the transaction and it can be used to verify that our signature is valid and data has not been tampered with.
 
 ## Transactions
 Each transaction will carry ...
@@ -40,4 +40,5 @@ Each transaction will carry ...
  - The value/amount of funds to be transferred
  - Inputs, which are references to previous transactions that prove the sender has funds to send.
  - Outputs, which shows the amount relevant addresses received in the transaction. (These outputs are referenced as inputs in new transactions)
- - A cryptographic signature, that proves the owner of the address is the one sending this transaction and that the data hasn’t been changed. (for example: preventing a third party from changing the amount sent)
+ - A cryptographic signature, that proves the owner of the address is the one sending this transaction and that the data hasn’t been changed
+   (for example: preventing a third party from changing the amount sent)
