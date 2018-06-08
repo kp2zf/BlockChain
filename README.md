@@ -5,8 +5,8 @@ A Java based model of a Blockchain that stores data for cryptocurrency transacti
  - is composed of blocks that **store** transaction data
  - implements a simple mining system
  - has a **digital signature** that chains blocks together
- - requires proof of work mining to validate new blocks
- - can be used to check to see if data in it is **valid and unchanged**
+ - requires "proof of work" mining to validate new blocks
+ - can be used to check if data in the blockchain is **valid and unchanged**
  - allows users to make transactions on the blockchain
  - allows users to **create wallets**
  - provides wallets with public and private keys using Elliptic-Curve Cryptography.
