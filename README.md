@@ -21,3 +21,12 @@ The hash is calculated by encrypting the sum of the previous hash, timestamp, no
 ## The "Chain"
 Each block object is stored in an ArrayList to sustain the "chain" integrity of the blockchain. The isChainValid() method loops through all blocks in the chain and compares the hashes to check to see if the hash variable is actually equal to the calculated hash, and the previous block’s hash is equal to the previousHash variable. Any change to the blockchain’s blocks will cause this method to return false.
 
+## Mining
+The **proof of work** system is implemented for the mining system for this blockchain, where the longest valid chain is accepted by the network. Proof of work makes the miners try different variable values in the block until its hash starts with a certain number of 0’s. This system means it takes considerable time and computational power to create new blocks. Hence the attacker would need more computational power than the rest of the peers combined.
+
+Nonce value is a constant value that is integrated into the hash. In reality each miner will start iterating from a random point. Some miners may even try random numbers for nonce. Also it’s worth noting that at the harder difficulties solutions may require more than integer.MAX_VALUE, miners can then try changing the timestamp.
+
+The mineBlock() method takes in an int called difficulty, this is the number of 0’s they must solve for. Low difficulties, like 1 or 2, can be solved nearly instantly on most computers, something around 4–6 is ideal for testing. *Fun Fact: At the time of writing Litecoin’s difficulty is around 442,592 *
+
+## Wallet
+Coin ownership is transfered on the Blockchain as transactions, participants have an address which funds can be sent to and from. Wallets can just store these addresses. Wallets also hold a private key (used to *sign* the transactions) and a public key (our address).
